@@ -2,7 +2,6 @@
 spl_autoload_register('classAutoLoader');
 
 function classAutoLoader($className){
-    echo 'Classname:'.$className.'<br/>';
     $extension = '.class.php';
     $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     if(strpos($url, 'inc') != false){
@@ -16,11 +15,6 @@ function classAutoLoader($className){
     }else{
         $path = 'classes/';
     }
-    echo 'Url:'.$url;
-    
-    echo '<br/>';
-    echo $path . $className . $extension;
-    echo '<br/>';
     require_once $path . $className . $extension;
 }
 ?>
